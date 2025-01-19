@@ -11,6 +11,14 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ['phone_number', 'email', 'password1', 'password2']
 
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.username = self.cleaned_data['phone_number']  # تخصیص شماره تلفن به username
+        if commit:
+            user.save()
+        return user
+
+
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(max_length=15, required=True, widget=forms.TextInput(attrs={'placeholder': 'شماره تلفن'}))
 
