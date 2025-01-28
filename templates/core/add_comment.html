@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if is_admin %}Admin Response{% else %}Add Comment{% endif %}</title>
+</head>
+<body>
+    <h1>{% if is_admin %}Respond to Comment{% else %}Add Comment{% endif %}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if is_admin %}Respond{% else %}Submit{% endif %}</button>
+    </form>
+
+    {% if is_admin %}
+        <hr>
+        <p><strong>Original Comment:</strong> {{ comment.content }}</p>
+    {% endif %}
+
+    <a href="{% url 'comment_list' %}">Back to Comments</a>
+</body>
+</html>

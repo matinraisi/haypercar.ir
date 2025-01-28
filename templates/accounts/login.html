@@ -1,0 +1,77 @@
+{% extends "parent/base.html" %}
+{% load static %}
+{% block title %}ورود{% endblock title %}
+
+{% comment %} content {% endcomment %}
+{% block content %}   
+    <!-- site__body -->
+     <div class="site__body">
+      <div class="block-space block-space--layout--after-header"></div>
+      <div class="block">
+        <div class="container container--max--lg">
+          <div class="row d-flex justify-content-center align-items-center" style="height: 100%;">
+            <div class="col-md-6 d-flex">
+              <div class="card flex-grow-1 mb-md-0 mr-0 mr-lg-3 ml-0 ml-lg-4">
+                <div class="card-body card-body--padding--2">
+                  <h3 class="card-title">ورود</h3>
+                  <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="signin-email">شماره تلفن</label>
+                      <input
+                        id="signin-email"
+                        type="text"
+                        name="username"
+                        class="form-control {% if form.username.errors %}is-invalid{% endif %}"
+                        placeholder="شماره تلفن خود را وارد کنید"
+                        value="{{ form.username.value }}" 
+                        required
+                      />
+                      {% for error in form.username.errors %}
+                        <div class="invalid-feedback">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      <label for="signin-password">کلمه عبور</label>
+                      <input
+                        id="signin-password"
+                        type="password"
+                        name="password"
+                        class="form-control {% if form.password.errors %}is-invalid{% endif %}"
+                        placeholder="کلمه عبور محرمانه"
+                        required
+                      />
+                      {% for error in form.password.errors %}
+                        <div class="invalid-feedback">{{ error }}</div>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="signin-remember"
+                          name="remember_me"
+                        />
+                        <label class="form-check-label" for="signin-remember">مرا به خاطر بسپار</label>
+                      </div>
+                    </div>
+                    <div class="form-group mb-0">
+                      <button type="submit" class="btn btn-primary mt-3">ورود</button>
+                    </div>
+                  </form>
+                  
+                  
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="block-space block-space--layout--before-footer"></div>
+    </div>
+    <!-- site__body / end -->
+    {% endblock content %}
