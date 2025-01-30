@@ -1,18 +1,22 @@
-<<<<<<< HEAD
-# products/forms.py
-
 from django import forms
-from .models import Product, ProductImage, ProductVideo
-=======
-from django import forms
-from .models import Product
->>>>>>> be8b472dbf63522465228c8873ac44da95befb52
+from .models import Product, ProductImage, ProductVideo,DiscountCode
 
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-<<<<<<< HEAD
-        fields = ['name', 'description', 'price', 'stock', 'is_available']
+        fields = ['name', 'description', 'price', 'stock', 'is_available', 'categories']
+        widgets = {
+            'description': forms.Textarea(attrs={'rows': 3}),
+            'categories': forms.CheckboxSelectMultiple(),
+        }
+        labels = {
+            'name': 'نام محصول',
+            'price': 'قیمت',
+            'stock': 'موجودی',
+            'description': 'توضیحات',
+            'categories': 'دسته‌بندی‌ها',
+            'is_available': 'وضعیت موجودی',
+        }
 
 class ProductImageForm(forms.ModelForm):
     class Meta:
@@ -23,20 +27,22 @@ class ProductVideoForm(forms.ModelForm):
     class Meta:
         model = ProductVideo
         fields = ['video', 'caption']
-=======
-        fields = ['name', 'price', 'part_number', 'stock', 'description', 'image', 'brand', 'categories']
+
+class DiscountCodeForm(forms.ModelForm):
+    class Meta:
+        model = DiscountCode
+        fields = ['code', 'discount_percentage', 'valid_from', 'valid_to', 'is_active', 'products', 'categories', 'apply_to_all']
         widgets = {
-            'description': forms.Textarea(attrs={'rows': 3}),
-            'categories': forms.CheckboxSelectMultiple(),
+            'valid_from': forms.DateTimeInput(attrs={'type': 'datetime-local'}),  # ویجت انتخاب تاریخ و زمان
+            'valid_to': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }
         labels = {
-            'name': 'نام محصول',
-            'price': 'قیمت',
-            'part_number': 'شماره قطعه',
-            'stock': 'موجودی',
-            'description': 'توضیحات',
-            'image': 'تصویر محصول',
-            'brand': 'برند',
+            'code': 'کد تخفیف',
+            'discount_percentage': 'درصد تخفیف',
+            'valid_from': 'تاریخ شروع',
+            'valid_to': 'تاریخ پایان',
+            'is_active': 'فعال',
+            'products': 'محصولات',
             'categories': 'دسته‌بندی‌ها',
+            'apply_to_all': 'اعمال روی همه محصولات',
         }
->>>>>>> be8b472dbf63522465228c8873ac44da95befb52

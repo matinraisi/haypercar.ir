@@ -43,11 +43,7 @@ INSTALLED_APPS = [
     'accounts',
     'core',
     'products',
-<<<<<<< HEAD
-    
-=======
-    'comments',
->>>>>>> be8b472dbf63522465228c8873ac44da95befb52
+
 ]
 
 MIDDLEWARE = [

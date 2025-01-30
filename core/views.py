@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Comment
@@ -42,10 +41,9 @@ def respond_to_comment(request, comment_id):
         return render(request, 'core/respond_to_comment.html', {'comment': comment})
     else:
         return redirect('comment_list')
-=======
+
 from django.shortcuts import render
 
 # Create your views here.
 def home(request):
     return render(request , 'core/home.html')
->>>>>>> be8b472dbf63522465228c8873ac44da95befb52

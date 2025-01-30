@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# products/tests.py
-
 from django.test import TestCase
 from .models import Product
 
@@ -118,8 +115,7 @@ class ProductTestCase(TestCase):
 
         # بررسی که موجودی صفر شده باشد
         self.assertEqual(self.product.stock, 0)
-=======
+
 from django.test import TestCase
 
-# Create your tests here.
->>>>>>> be8b472dbf63522465228c8873ac44da95befb52
+

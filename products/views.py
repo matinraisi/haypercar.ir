@@ -1,9 +1,9 @@
-<<<<<<< HEAD
-# products/views.py
-
 from django.shortcuts import render, redirect
 from .models import Product, ProductImage, ProductVideo
 from .forms import ProductForm, ProductImageForm, ProductVideoForm
+# ایمپورت کلاس‌های لازم برای تعریف ویوهای مبتنی بر کلاس
+from django.views.generic import ListView, DetailView
+from .models import Product, Category  # ایمپورت مدل‌های Product و Category برای استفاده در ویوها
 
 def add_product(request):
     if request.method == 'POST':
@@ -26,10 +26,7 @@ def add_product(request):
         video_form = ProductVideoForm()
 
     return render(request, 'products/add_product.html', {'product_form': product_form, 'image_form': image_form, 'video_form': video_form})
-=======
-# ایمپورت کلاس‌های لازم برای تعریف ویوهای مبتنی بر کلاس
-from django.views.generic import ListView, DetailView
-from .models import Product, Category  # ایمپورت مدل‌های Product و Category برای استفاده در ویوها
+
 
 # ویوی لیست محصولات
 class ProductListView(ListView):
@@ -48,4 +45,3 @@ class CategoryDetailView(DetailView):
     model = Category  # مشخص کردن مدل مرتبط (Category)
     template_name = 'store/category_detail.html'  # تعیین قالب نمایش جزئیات یک دسته‌بندی
     context_object_name = 'category'  # نام داده‌ای که جزئیات دسته‌بندی را در قالب در دسترس قرار می‌دهد (category)
->>>>>>> be8b472dbf63522465228c8873ac44da95befb52
