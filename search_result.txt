@@ -1,3 +1,4 @@
+account-dashboard.txt:55 ---> Updated src="{% static 'images/avatars/avatar-4.jpg' %}"
 home.txt:975 ---> src="{% static " (has {%}، {} یا URL مطلق)
 home.txt:982 ---> src="{% static " (has {%}، {} یا URL مطلق)
 home.txt:989 ---> src="{% static " (has {%}، {} یا URL مطلق)
@@ -34,6 +35,11 @@ home.txt:6108 ---> src="{% static " (has {%}، {} یا URL مطلق)
 home.txt:6195 ---> src="{% static " (has {%}، {} یا URL مطلق)
 home.txt:6229 ---> src="{% static " (has {%}، {} یا URL مطلق)
 home.txt:6262 ---> src="{% static " (has {%}، {} یا URL مطلق)
+Product_details.txt:761 ---> Updated src="{% static 'images/avatars/avatar-1-42x42.jpg' %}"
+Product_details.txt:849 ---> Updated src="{% static 'images/avatars/avatar-3-42x42.jpg' %}"
+shopping_cart.txt:61 ---> Updated src="{% static 'images/products/product-4-160x160.jpg' %}"
+shopping_cart.txt:99 ---> Updated src="{% static 'images/products/product-2-160x160.jpg' %}"
+shopping_cart.txt:133 ---> Updated src="{% static 'images/products/product-5-160x160.jpg' %}"
 base.txt:11 ---> href="{% static " (has {%}، {} یا URL مطلق)
 base.txt:13 ---> href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" (has {%}، {} یا URL مطلق)
 base.txt:15 ---> href="{% static " (has {%}، {} یا URL مطلق)
