@@ -47,98 +47,6 @@ from django.shortcuts import render
 # Create your views here.
 def home(request):
     return render(request , 'core/home.html')
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def shopping_cart(request):
     return render(request , 'core/shopping_cart.html')
@@ -167,5 +75,4 @@ def account_password(request):
     return render(request , 'core/account-password.html')
 
 
-=======
->>>>>>> 7c593b5acaf2c3cc241cc1ec39e15e57de43c9e0
+
