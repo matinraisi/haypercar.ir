@@ -3,6 +3,52 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     path('shopping_cart', views.shopping_cart, name='shopping_cart'),
     path('account_settlement', views.account_settlement, name='account_settlement'),
     path('Product_details', views.Product_details, name='Product_details'),
@@ -13,7 +59,6 @@ urlpatterns = [
     path('account_addresses', views.account_addresses, name='account_addresses'),
     path('account_edit_address', views.account_edit_address, name='account_edit_address'),
     path('account_password', views.account_password, name='account_password'),
-
 
 
 ]
