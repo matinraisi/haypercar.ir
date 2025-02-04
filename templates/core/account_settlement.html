@@ -1,0 +1,315 @@
+{% extends "parent/base.html" %}
+{% load static %}
+{% block title %}haypercar{% endblock title %}
+
+{% comment %} content {% endcomment %}
+{% block content %}
+
+       <!-- site__body -->
+       <div class="site__body">
+        <div
+          class="block-header block-header--has-breadcrumb block-header--has-title"
+        >
+          <div class="container">
+            <div class="block-header__body">
+              <nav
+                class="breadcrumb block-header__breadcrumb"
+                aria-label="breadcrumb"
+              >
+                <ol class="breadcrumb__list">
+                  <li
+                    class="breadcrumb__spaceship-safe-area"
+                    role="presentation"
+                  ></li>
+                  <li
+                    class="breadcrumb__item breadcrumb__item--parent breadcrumb__item--first"
+                  >
+                    <a href="index.html" class="breadcrumb__item-link">Home</a>
+                  </li>
+                  <li class="breadcrumb__item breadcrumb__item--parent">
+                    <a href="#" class="breadcrumb__item-link">Breadcrumb</a>
+                  </li>
+                  <li
+                    class="breadcrumb__item breadcrumb__item--current breadcrumb__item--last"
+                    aria-current="page"
+                  >
+                    <span class="breadcrumb__item-link">Current Page</span>
+                  </li>
+                  <li
+                    class="breadcrumb__title-safe-area"
+                    role="presentation"
+                  ></li>
+                </ol>
+              </nav>
+              <h1 class="block-header__title">تسویه حساب
+			</h1>
+            </div>
+          </div>
+        </div>
+        <div class="checkout block">
+          <div class="container container--max--xl">
+            <div class="row">
+              <div class="col-12 mb-3">
+                <div class="alert alert-lg alert-primary">
+                  مشتری قبلی هستید؟ <a href="#">کلیک کنید برای ورود</a>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6 col-xl-7">
+                <div class="card mb-lg-0">
+					<div class="card-body card-body--padding--2">
+						<h3 class="card-title">جزئیات صورتحساب</h3>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="checkout-first-name">نام</label>
+								<input type="text" class="form-control" id="checkout-first-name" placeholder="نام" />
+							</div>
+							<div class="form-group col-md-6">
+								<label for="checkout-last-name">نام خانوادگی</label>
+								<input type="text" class="form-control" id="checkout-last-name" placeholder="نام خانوادگی" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="checkout-company-name">نام شرکت <span class="text-muted">(اختیاری)</span></label>
+							<input type="text" class="form-control" id="checkout-company-name" placeholder="نام شرکت" />
+						</div>
+						<div class="form-group">
+							<label for="checkout-country">کشور</label>
+							<select id="checkout-country" class="form-control form-control-select2">
+								<option>یک کشور انتخاب کنید...</option>
+								<option>ایالات متحده</option>
+								<option>روسیه</option>
+								<option>ایتالیا</option>
+								<option>فرانسه</option>
+								<option>اوکراین</option>
+								<option>آلمان</option>
+								<option>استرالیا</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="checkout-street-address">آدرس خیابان</label>
+							<input type="text" class="form-control" id="checkout-street-address" placeholder="آدرس خیابان" />
+						</div>
+						<div class="form-group">
+							<label for="checkout-address">آپارتمان، سوئیت، واحد و غیره <span class="text-muted">(اختیاری)</span></label>
+							<input type="text" class="form-control" id="checkout-address" />
+						</div>
+						<div class="form-group">
+							<label for="checkout-city">شهر / شهرک</label>
+							<input type="text" class="form-control" id="checkout-city" />
+						</div>
+						<div class="form-group">
+							<label for="checkout-state">استان / شهرستان</label>
+							<input type="text" class="form-control" id="checkout-state" />
+						</div>
+						<div class="form-group">
+							<label for="checkout-postcode">کد پستی</label>
+							<input type="text" class="form-control" id="checkout-postcode" />
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="checkout-email">آدرس ایمیل</label>
+								<input type="email" class="form-control" id="checkout-email" placeholder="آدرس ایمیل" />
+							</div>
+							<div class="form-group col-md-6">
+								<label for="checkout-phone">تلفن</label>
+								<input type="text" class="form-control" id="checkout-phone" placeholder="تلفن" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-check">
+								<span class="input-check form-check-input">
+									<span class="input-check__body">
+										<input class="input-check__input" type="checkbox" id="checkout-create-account" />
+										<span class="input-check__box"></span>
+										<span class="input-check__icon">
+											<svg width="9px" height="7px">
+												<path d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z" />
+											</svg>
+										</span>
+									</span>
+								</span>
+								<label class="form-check-label" for="checkout-create-account">ایجاد حساب کاربری؟</label>
+							</div>
+						</div>
+					</div>
+					
+                  <div class="card-divider"></div>
+                  <div class="card-body card-body--padding--2">
+					<h3 class="card-title">جزئیات ارسال</h3>
+                    <div class="form-group">
+                      <div class="form-check">
+                        <span class="input-check form-check-input"
+                          ><span class="input-check__body"
+                            ><input
+                              class="input-check__input"
+                              type="checkbox"
+                              id="checkout-different-address" />
+                            <span class="input-check__box"></span>
+                            <span class="input-check__icon"
+                              ><svg width="9px" height="7px">
+                                <path
+                                  d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z"
+                                />
+                              </svg> </span></span></span
+                        ><label class="form-check-label" for="checkout-different-address">ارسال به آدرس دیگر؟</label>
+
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="checkout-comment"
+                        >توضیحات سفارش
+                        <span class="text-muted">(اختیاری)</span></label>
+                      <textarea
+                        id="checkout-comment"
+                        class="form-control"
+                        rows="4"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6 col-xl-5 mt-4 mt-lg-0">
+                <div class="card mb-0">
+					<div class="card-body card-body--padding--2">
+						<h3 class="card-title">سفارش شما</h3>
+						<table class="checkout__totals">
+							<thead class="checkout__totals-header">
+								<tr>
+									<th>محصول</th>
+									<th>مجموع</th>
+								</tr>
+							</thead>
+							<tbody class="checkout__totals-products">
+								<tr>
+									<td>چرخ آلومینیومی ۱۹ اینچی خاکستری براق AR-19 × 2</td>
+									<td>$1398.00</td>
+								</tr>
+								<tr>
+									<td>کیت ترمز برندیکس BDX-750Z370-S × 1</td>
+									<td>$849.00</td>
+								</tr>
+								<tr>
+									<td>لوله اگزوز دوگانه برندیکس Z54 × 3</td>
+									<td>$3630.00</td>
+								</tr>
+							</tbody>
+							<tbody class="checkout__totals-subtotals">
+								<tr>
+									<th>جمع فرعی</th>
+									<td>$5877.00</td>
+								</tr>
+								<tr>
+									<th>اعتبار فروشگاه</th>
+									<td>$-20.00</td>
+								</tr>
+								<tr>
+									<th>هزینه ارسال</th>
+									<td>$25.00</td>
+								</tr>
+							</tbody>
+							<tfoot class="checkout__totals-footer">
+								<tr>
+									<th>مجموع کل</th>
+									<td>$5882.00</td>
+								</tr>
+							</tfoot>
+						</table>
+						<div class="checkout__payment-methods payment-methods">
+							<ul class="payment-methods__list">
+								<li class="payment-methods__item payment-methods__item--active">
+									<label class="payment-methods__item-header">
+										<span class="payment-methods__item-radio input-radio">
+											<span class="input-radio__body">
+												<input class="input-radio__input" name="checkout_payment_method" type="radio" checked="checked" />
+												<span class="input-radio__circle"></span>
+											</span>
+										</span>
+										<span class="payment-methods__item-title">انتقال مستقیم بانکی</span>
+									</label>
+									<div class="payment-methods__item-container">
+										<div class="payment-methods__item-details text-muted">
+											پرداخت خود را مستقیماً به حساب بانکی ما انجام دهید. لطفاً از شناسه سفارش خود به عنوان مرجع پرداخت استفاده کنید. سفارش شما تا زمان پاک شدن وجوه در حساب ما ارسال نخواهد شد.
+										</div>
+									</div>
+								</li>
+								<li class="payment-methods__item">
+									<label class="payment-methods__item-header">
+										<span class="payment-methods__item-radio input-radio">
+											<span class="input-radio__body">
+												<input class="input-radio__input" name="checkout_payment_method" type="radio" />
+												<span class="input-radio__circle"></span>
+											</span>
+										</span>
+										<span class="payment-methods__item-title">پرداخت با چک</span>
+									</label>
+									<div class="payment-methods__item-container">
+										<div class="payment-methods__item-details text-muted">
+											لطفاً چکی به نام فروشگاه، خیابان فروشگاه، شهر فروشگاه، استان / شهرستان فروشگاه، کد پستی فروشگاه ارسال کنید.
+										</div>
+									</div>
+								</li>
+								<li class="payment-methods__item">
+									<label class="payment-methods__item-header">
+										<span class="payment-methods__item-radio input-radio">
+											<span class="input-radio__body">
+												<input class="input-radio__input" name="checkout_payment_method" type="radio" />
+												<span class="input-radio__circle"></span>
+											</span>
+										</span>
+										<span class="payment-methods__item-title">پرداخت نقدی در محل</span>
+									</label>
+									<div class="payment-methods__item-container">
+										<div class="payment-methods__item-details text-muted">
+											پرداخت نقدی در هنگام تحویل.
+										</div>
+									</div>
+								</li>
+								<li class="payment-methods__item">
+									<label class="payment-methods__item-header">
+										<span class="payment-methods__item-radio input-radio">
+											<span class="input-radio__body">
+												<input class="input-radio__input" name="checkout_payment_method" type="radio" />
+												<span class="input-radio__circle"></span>
+											</span>
+										</span>
+										<span class="payment-methods__item-title">پی پال</span>
+									</label>
+									<div class="payment-methods__item-container">
+										<div class="payment-methods__item-details text-muted">
+											پرداخت از طریق پی پال؛ اگر حساب پی پال ندارید، می‌توانید با کارت اعتباری خود پرداخت کنید.
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="checkout__agree form-group">
+							<div class="form-check">
+								<span class="input-check form-check-input">
+									<span class="input-check__body">
+										<input class="input-check__input" type="checkbox" id="checkout-terms" />
+										<span class="input-check__box"></span>
+										<span class="input-check__icon">
+											<svg width="9px" height="7px">
+												<path d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z" />
+											</svg>
+										</span>
+									</span>
+								</span>
+								<label class="form-check-label" for="checkout-terms">من شرایط و ضوابط وب‌سایت را خوانده‌ام و موافقم
+									<a target="_blank" href="terms.html">شرایط و ضوابط</a></label>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary btn-xl btn-block">
+							ثبت سفارش
+						</button>
+					</div>
+					
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-space block-space--layout--before-footer"></div>
+      </div>
+      <!-- site__body / end -->
+{% endblock content %}
