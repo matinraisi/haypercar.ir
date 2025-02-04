@@ -41,9 +41,9 @@ INSTALLED_APPS = [
     
     # LoacalApp
     'accounts',
-    'core'
-    
-    
+    'core',
+    'products',
+
 ]
 
 MIDDLEWARE = [
