@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Comment
 from .forms import CommentForm
-
+from products.models import Product
 # ویوی صفحه اصلی
 def home(request):
     return render(request, 'core/home.html')
@@ -46,7 +46,9 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    return render(request , 'core/home.html')
+    product_all= Product.objects.all()
+    
+    return render(request , 'core/home.html',{'product':product_all,})
 
 def shopping_cart(request):
     return render(request , 'core/shopping_cart.html')

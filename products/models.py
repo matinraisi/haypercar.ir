@@ -16,13 +16,13 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255)  # نام محصول
     description = models.TextField()  # توضیحات محصول
-    price = models.DecimalField(max_digits=10, decimal_places=2)  # قیمت محصول
+    price = models.DecimalField(max_digits=10, decimal_places=0)  # قیمت محصول
     stock = models.PositiveIntegerField(default=1)  # تعداد موجودی محصول
     is_available = models.BooleanField(default=True)  # وضعیت موجودی محصول
     categories = models.ManyToManyField(Category, related_name='products', through='ProductCategory')  # ارتباط محصول با دسته‌بندی‌ها
     created_at = jDateTimeField(auto_now_add=True)  # تاریخ ایجاد محصول (جلالی)
     updated_at = jDateTimeField(auto_now=True)  # تاریخ به‌روزرسانی محصول (جلالی)
-    
+   
     def __str__(self):
         return self.name
 
