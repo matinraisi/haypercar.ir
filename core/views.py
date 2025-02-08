@@ -30,4 +30,6 @@ def account_edit_address(request):
 def account_password(request):
     return render(request , 'core/account-password.html')
 
+def shop(request):
+    return render(request , 'core/shop.html')
 

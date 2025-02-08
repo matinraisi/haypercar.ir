@@ -13,6 +13,7 @@ urlpatterns = [
     path('account_addresses', views.account_addresses, name='account_addresses'),
     path('account_edit_address', views.account_edit_address, name='account_edit_address'),
     path('account_password', views.account_password, name='account_password'),
+    path('shop', views.shop, name='shop'),
 
 
 
