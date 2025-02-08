@@ -1,0 +1,10 @@
+<!-- respond_to_comment.html -->
+<h2>پاسخ به کامنت</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="response" placeholder="پاسخ ادمین" required></textarea>
+    <button type="submit">ارسال پاسخ</button>
+</form>
+
+<a href="{% url 'comment_list' %}">بازگشت به لیست کامنت‌ها</a>
