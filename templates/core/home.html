@@ -179,9 +179,9 @@
                                     </div>
                                     <div class="product-card__image">
                                         <div class="image image--type--product">
-                                            <a href="product-full.html" class="image__body"><img class="image__tag"
-                                                    src="{{ item.image.url }}"
-                                                    alt="" /></a>
+                                            <a href="{% url 'Product_details' item.id %}" class="image__body"><img class="image__tag"
+                                                    src="{{item.images.first.image.url }}"
+                                                    alt="{{ item.name }}" /></a>
                                         </div>
                                         <div
                                             class="status-badge status-badge--style--success product-card__fit status-badge--has-icon status-badge--has-text">
@@ -236,9 +236,15 @@
                                     </div>
                                     <div class="product-card__footer">
                                         <div class="product-card__prices">
+                                        {% if item.is_available %}
                                             <div class="product-card__price product-card__price--current">
-                                            {{ item.price|intcomma:False }}تومان
+                                            {{ item.price|intcomma:False }} تومان 
                                             </div>
+                                        {% else %}
+                                            <div class="product-card__price product-card__price--current">
+                                                ناموجود 
+                                                </div>
+                                        {% endif %}
                                         </div>
                                         <button class="product-card__addtocart-icon" type="button"
                                             aria-label="Add to cart">
@@ -1097,13 +1103,14 @@
                 
                 <div class="block-categories__list">
                 {% for item in product %}
+                    {% if item.is_available %}
                     <div class="block-categories__item category-card category-card--layout--classic">
                         
                         <div class="category-card__body">
                             <div class="category-card__content">
                                 <div class="category-card__image image image--type--category">
                                     <a href="#" class="image__body"><img class="image__tag"
-                                            src="./images/categories/قیمت-تندر-90.png" alt="" /></a>
+                                            src="{{ item.images.first.image.url }}" alt="" /></a>
                                 </div>
                                 <div class="category-card__info">
                                     <div class="category-card__name">
@@ -1125,6 +1132,7 @@
                         </div>
                     
                     </div>
+                    {% endif %}
                 {% endfor %}
                     {% comment %} <div class="block-categories__item category-card category-card--layout--classic">
                         <div class="category-card__body">
@@ -1311,6 +1319,7 @@
             <div class="block-products-carousel__carousel">
                 <div class="block-products-carousel__carousel-loader"></div>
                 <div class="owl-carousel">
+                {% for item in product %}
                     <div class="block-products-carousel__column">
                         <div class="block-products-carousel__cell">
                             <div class="product-card product-card--layout--grid">
@@ -1344,7 +1353,7 @@
                                 <div class="product-card__image">
                                     <div class="image image--type--product">
                                         <a href="product-full.html" class="image__body"><img class="image__tag"
-                                                src="{% static 'images/products/product-1-245x245.jpg' %}" alt="" /></a>
+                                                src="{{item.images.first.image.url }}" alt="" /></a>
                                     </div>
                                     <div
                                         class="status-badge status-badge--style--success product-card__fit status-badge--has-icon status-badge--has-text">
@@ -1375,7 +1384,7 @@
                                                 <div class="tag-badge tag-badge--new">جدید</div>
                                                 <div class="tag-badge tag-badge--hot">داغ</div>
                                             </div>
-                                            <a href="product-full.html">کیت شمع جرقه برندیکس ASR-400</a>
+                                            <a href="product-full.html">{{ item.name }}</a>
                                         </div>
                                     </div>
                                     <div class="product-card__rating">
@@ -1395,9 +1404,15 @@
                                 </div>
                                 <div class="product-card__footer">
                                     <div class="product-card__prices">
+                                    {% if item.is_available %}
                                         <div class="product-card__price product-card__price--current">
-                                            ۱۹٫۰۰ دلار
+                                        {{ item.price|intcomma:False }} تومان 
                                         </div>
+                                    {% else %}
+                                        <div class="product-card__price product-card__price--current">
+                                            ناموجود 
+                                            </div>
+                                    {% endif %}
                                     </div>
                                     <button class="product-card__addtocart-icon" type="button" aria-label="Add to cart">
                                         <svg width="20" height="20">
@@ -1412,6 +1427,7 @@
                             </div>
                         </div>
                     </div>
+                {% endfor %}
                     <div class="block-products-carousel__column">
                         <div class="block-products-carousel__cell">
                             <div class="product-card product-card--layout--grid">
