@@ -39,9 +39,10 @@ class Product(models.Model):
         self.is_available = self.stock > 0
 
     def save(self, *args, **kwargs):
-        """ انجام اعتبارسنجی قبل از ذخیره سازی """
-        self.clean()
+        """ تنظیم وضعیت محصول بر اساس موجودی و ذخیره در دیتابیس """
+        self.is_available = self.stock > 0  # محصول فقط در صورت موجودی فعال است
         super().save(*args, **kwargs)
+
 
 class ProductCategory(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)  # ارتباط با محصول

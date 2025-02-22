@@ -1,7 +1,7 @@
 {% extends "parent/base.html" %}
 {% load static %}
 {% block title %}haypercar{% endblock title %}
-
+{% load humanize %}
 {% comment %} content {% endcomment %}
 {% block content %}
        <!-- site__body -->
@@ -68,19 +68,24 @@
                 attribute, in which case the width and height will be obtained from the naturalWidth
                 and naturalHeight property of img.image__tag.
                 -->
-                          <a
-                            class="image image--type--product"
-                            href="images/products/product-2-700x700.jpg"
-                            target="_blank"
-                            data-width="700"
-                            data-height="700"
-                            ><div class="image__body">
-                              <img
-                                class="image__tag"
-                                src="images/products/product-2-500x500.jpg"
-                                alt=""
-                              /></div></a
-                          ><!--
+                {% for image in product_dete.images.all %}
+                    <a
+                        class="image image--type--product"
+                        href="{{ image.image.url }}"
+                        target="_blank"
+                        data-width="700"
+                        data-height="700"
+                >
+                      <div class="image__body">
+                          <img
+                              class="image__tag"
+                              src="{{ image.image.url }}"
+                              alt="{{ product_dete.name }}"
+                        />
+                      </div>
+                    </a>
+                {% endfor %}
+                <!--
                 The data-width and data-height attributes must contain the size of a larger version
                 of the product image.
 
@@ -88,7 +93,7 @@
                 attribute, in which case the width and height will be obtained from the naturalWidth
                 and naturalHeight property of img.image__tag.
                 -->
-                          <a
+                          {% comment %} <a
                             class="image image--type--product"
                             href="images/products/product-1-700x700.jpg"
                             target="_blank"
@@ -97,10 +102,11 @@
                             ><div class="image__body">
                               <img
                                 class="image__tag"
-                                src="images/products/product-1-500x500.jpg"
+                                src="{{ product_date.images.first.image.url }}"
                                 alt=""
                               /></div></a
-                          ><!--
+                          > {% endcomment %}
+                          <!--
                 The data-width and data-height attributes must contain the size of a larger version
                 of the product image.
 
@@ -108,7 +114,7 @@
                 attribute, in which case the width and height will be obtained from the naturalWidth
                 and naturalHeight property of img.image__tag.
                 -->
-                          <a
+                          {% comment %} <a
                             class="image image--type--product"
                             href="images/products/product-3-700x700.jpg"
                             target="_blank"
@@ -117,10 +123,11 @@
                             ><div class="image__body">
                               <img
                                 class="image__tag"
-                                src="images/products/product-3-500x500.jpg"
+                                src="{{ item.images.first.image.url }}"
                                 alt=""
                               /></div></a
-                          ><!--
+                          > {% endcomment %}
+                          <!--
                 The data-width and data-height attributes must contain the size of a larger version
                 of the product image.
 
@@ -128,7 +135,7 @@
                 attribute, in which case the width and height will be obtained from the naturalWidth
                 and naturalHeight property of img.image__tag.
                 -->
-                          <a
+                          {% comment %} <a
                             class="image image--type--product"
                             href="images/products/product-4-700x700.jpg"
                             target="_blank"
@@ -137,21 +144,34 @@
                             ><div class="image__body">
                               <img
                                 class="image__tag"
-                                src="images/products/product-4-500x500.jpg"
+                                src="{{ item.images.first.image.url }}"
                                 alt=""
                               /></div
-                          ></a>
+                          ></a> {% endcomment %}
                         </div>
                       </div>
                       <div class="product-gallery__thumbnails">
                         <div class="owl-carousel">
+                          {% for image in product_dete.images.all %}
                           <div
+                            class="product-gallery__thumbnails-item image image--type--product">
+                            <div class="image__body">
+                              <img
+                                class="image__tag"
+                                src="{{ image.image.url }}"
+                                alt=""
+                              />
+                            </div>
+                          
+                          </div>
+                          {% endfor %}
+                          {% comment %} <div
                             class="product-gallery__thumbnails-item image image--type--product"
                           >
                             <div class="image__body">
                               <img
                                 class="image__tag"
-                                src="images/products/product-2-70x70.jpg"
+                                src="{{ item.images.first.image.url }}"
                                 alt=""
                               />
                             </div>
@@ -162,7 +182,7 @@
                             <div class="image__body">
                               <img
                                 class="image__tag"
-                                src="images/products/product-1-70x70.jpg"
+                                src="{{ product_date.images.first.image.url }}"
                                 alt=""
                               />
                             </div>
@@ -173,28 +193,17 @@
                             <div class="image__body">
                               <img
                                 class="image__tag"
-                                src="images/products/product-3-70x70.jpg"
+                                src="{{ item.images.first.image.url }}"
                                 alt=""
                               />
                             </div>
-                          </div>
-                          <div
-                            class="product-gallery__thumbnails-item image image--type--product"
-                          >
-                            <div class="image__body">
-                              <img
-                                class="image__tag"
-                                src="images/products/product-4-70x70.jpg"
-                                alt=""
-                              />
-                            </div>
-                          </div>
+                          </div> {% endcomment %}
                         </div>
                       </div>
                     </div>
                     <div class="product__header">
 						<h1 class="product__title">
-							کیت ترمز برندیکس BDX-750Z370-S
+              {{ product_dete.name }}
 						</h1>
 						<div class="product__subtitle">
 							<div class="product__rating">
@@ -231,7 +240,7 @@
 					
 					<div class="product__main">
 						<div class="product__excerpt">
-							بسیاری از مباحث فلسفی که در دوران باستان آغاز شده‌اند، امروز نیز مورد بحث قرار می‌گیرند. به یک معنا، فلسفه با حکمت، فرهنگ فکری و جستجوی دانش مرتبط است.
+              {{ product_dete.description}}
 						</div>
 						<div class="product__features">
 							<div class="product__features-title">ویژگی‌های کلیدی:</div>
@@ -255,18 +264,29 @@
 								فروش
 							</div>
 							<div class="product__prices-stock">
-								<div class="product__prices">
-									<div class="product__price product__price--current">
-										$1,499.00
-									</div>
-								</div>
-								<div class="status-badge status-badge--style--success product__stock status-badge--has-text">
-									<div class="status-badge__body">
-										<div class="status-badge__text">موجود در انبار</div>
-										<div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="موجود در انبار"></div>
-									</div>
-								</div>
-							</div>
+                <div class="product__prices">
+                    <div class="product__price product__price--current">
+                        {% if product_dete.is_available %}
+                            {{ product_dete.price | intcomma:False }} تومان
+                        {% else %}
+                            <span class="text-danger">ناموجود</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="status-badge product__stock {% if product_dete.is_available %}status-badge--style--success{% else %}status-badge--style--danger{% endif %} status-badge--has-text">
+                    <div class="status-badge__body">
+                        <div class="status-badge__text">
+                            {% if product_dete.is_available %}
+                                موجود در انبار
+                            {% else %}
+                                ناموجود
+                            {% endif %}
+                        </div>
+                        <div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="{% if product_dete.is_available %}موجود در انبار{% else %}ناموجود{% endif %}"></div>
+                    </div>
+                </div>
+            </div>
+            
 							<div class="product__meta">
 								<table>
 									<tr>
@@ -349,7 +369,7 @@
 								</div>
 							</div>
 							<div class="product__actions-item product__actions-item--addtocart">
-								<button class="btn btn-primary btn-lg btn-block">
+								<button class="btn btn-primary btn-lg btn-block" value= '{{ product.id }}'>
 									افزودن به سبد خرید
 								</button>
 							</div>
@@ -374,7 +394,7 @@
                         <div class="product__tags-and-share-links">
 							<div class="product__tags tags tags--sm">
 								<div class="tags__list">
-									<a href="#">کیت ترمز</a>
+									<a href="#">کیتز</a>
 									<a href="#">برندیکس</a>
 									<a href="#">فیلتر</a>
 									<a href="#">بامپر</a>
@@ -676,16 +696,7 @@
                           id="product-tab-description"
                         >
 						<div class="typography">
-							<p>
-								لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد.
-							</p>
-							<h4>ایتیم لاکوس لاکوس مویس این ماتی</h4>
-							<p>
-								پرایزنت متیس اجتیاو اکیلی آک المنتوم. مائسن باز آلین اوت انم مولیس آکومسان. وستیبولوم آل ایروس ات می سوسیت فیوجییت. سد تورتر پرز، وولپتویت ات ایروس آ، رنکوس لاورت اورکی. پروین ساپین نیکوی، کمدو ات پورتا این، وهیکولا یو الیت. وستیبولوم انته ایپسم پریمیس این فاوکیبوس اورکی لوکتوس ات آلترسیس پوسوئر کیوبیلیا کورای; کورابیتور پورتا وولپتویت اوگای، ات سولیسیتودین نیسل مولیستیی اگه.
-							</p>
-							<p>
-								نونک سولیسیتودین، نونک آید آکومسان سمپر، لیبرو نونک آلیکوت نولا، نک پرتیم ایپسم ریسوس آک نک. موربی ائو فاسیلیسیس پوروس. کوییسکوی می تورتر، کورسوس این نولا اوت، لاورت کمدو کوام. پلنکتیو ات اورنار ساپین. این آک است تمپس اورنا تینسیدنت فیونیوس. اینتگر ارآت ایپسم، تریستیکه آک لوبورتیس سیت آمیت، داپیبس سیت آمیت پرز. نم سد لورم نیسی. وستیبولوم آلترسیکیس تینسیدنت تورپیس، سیت آمیت فرینگیلا اودیو اسکلریسکو ک نون.
-							</p>
+            {{ product_dete.description }}
 						</div>
 						
                         </div>
@@ -757,6 +768,7 @@
 									<li class="reviews-list__item">
 										<div class="review">
 											<div class="review__body">
+                        
 												<div class="review__avatar">
 													<img src="{% static 'images/avatars/avatar-1-42x42.jpg' %}" alt="" />
 												</div>
@@ -830,7 +842,7 @@
                                         <div class="review__content typography">
 											اینان نون لروم نیسل. دویس تمپور
 											سولیسیتودین اورسی، اکت تینکیدونت اکس
-											سمپر سیت امت. نولام نک جوستو،
+                      سمپر سیت امت. نولام نک جوستو
 											سودالیس کونگوی فیوجییت آک، فاسیلیسیس آ
 											اوگای. دونک تمپور ساپین ات
 											فرینگیلا فاسیلیسیس. نام ماکسیماس
@@ -940,6 +952,7 @@
                               </div>
                             </div>
                             <form class="reviews-view__form">
+              
 								<h3 class="reviews-view__header">
 									نوشتن نظر
 								</h3>
@@ -970,13 +983,16 @@
 											<textarea class="form-control" id="review-text" rows="6"></textarea>
 										</div>
 										<div class="form-group mb-0 mt-4">
+                 
 											<button type="submit" class="btn btn-primary">
 												ارسال نظر شما
 											</button>
 										</div>
 									</div>
 								</div>
+                
 							</form>
+
 							
                           </div>
                         </div>
@@ -1208,7 +1224,7 @@
                           <a href="product-full.html" class="image__body"
                             ><img
                               class="image__tag"
-                              src="images/products/product-1-245x245.jpg"
+                              src="{{item.images.first.image.url }}"
                               alt=""
                           /></a>
                         </div>

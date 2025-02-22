@@ -18,8 +18,12 @@ urlpatterns = [
     path('add_comment/', views.add_comment, name='add_comment'),
     path('respond/<int:comment_id>/', views.respond_to_comment, name='respond_to_comment'),
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+    
+>>>>>>> 84ae610de1e1aedadfc2d852d5c465640ed4ac29
 =======
     
 >>>>>>> 84ae610de1e1aedadfc2d852d5c465640ed4ac29
