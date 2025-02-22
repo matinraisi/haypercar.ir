@@ -13,14 +13,10 @@ urlpatterns = [
     path('account_addresses', views.account_addresses, name='account_addresses'),
     path('account_edit_address', views.account_edit_address, name='account_edit_address'),
     path('account_password', views.account_password, name='account_password'),
-<<<<<<< HEAD
     path('shop', views.shop, name='shop'),
-
-=======
     path('comments/', views.comment_list, name='comment_list'),
     path('add_comment/', views.add_comment, name='add_comment'),
     path('respond/<int:comment_id>/', views.respond_to_comment, name='respond_to_comment'),
->>>>>>> 12eafc63003a29ca06c93158ec4c075304f505a6
 
 
 ]
