@@ -47,7 +47,6 @@ from django.shortcuts import render
 # Create your views here.
 def home(request):
     product_all= Product.objects.all()
-    
     return render(request , 'core/home.html',{'product':product_all,})
 
 def shopping_cart(request):
@@ -56,8 +55,9 @@ def shopping_cart(request):
 def account_settlement(request):
     return render(request , 'core/account_settlement.html')
 
-def Product_details(request):
-    return render(request , 'core/Product_details.html')
+def Product_details(request,pk):
+    Products= Product.objects.get(id=pk)
+    return render(request , 'core/Product_details.html',{'product_dete':Products})
 
 def account_dashboard(request):
     return render(request , 'core/account-dashboard.html')
@@ -77,6 +77,7 @@ def account_password(request):
     return render(request , 'core/account-password.html')
 
 def shop(request):
-    return render(request , 'core/shop.html')
+    product_all= Product.objects.all()
+    return render(request , 'core/shop.html',{'product':product_all,})
 
 
